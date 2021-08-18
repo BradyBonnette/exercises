@@ -4,58 +4,6 @@ require 'pry'
 
 module LeetCode
   class SameTree
-    # Definition for a binary tree node.
-    # class TreeNode
-    #     attr_accessor :val, :left, :right
-    #     def initialize(val = 0, left = nil, right = nil)
-    #         @val = val
-    #         @left = left
-    #         @right = right
-    #     end
-    # end
-
-    class TreeNode
-      attr_accessor :val, :left, :right
-      def initialize(val = 0, left = nil, right = nil)
-          @val = val
-          @left = left
-          @right = right
-      end
-    end
-
-    # Helper method to turn an array of values into a tree
-    def parse(data)
-      return nil if data.empty?
-      return LeetCode::SameTree::TreeNode.new(data[0]) if data.length == 1
-
-      root_queue = []
-      root = LeetCode::SameTree::TreeNode.new(data[0])
-      root_queue.push(root)
-
-      i = 1
-      while i < data.size
-        curr = root_queue[0]
-
-        # Try to set up left first
-        # if data[i].nil?
-        if !data[i].nil?
-        # else
-          curr.left = LeetCode::SameTree::TreeNode.new(data[i])
-          root_queue.push(curr.left)
-        end
-        i += 1
-        if !data[i].nil?
-          curr.right = LeetCode::SameTree::TreeNode.new(data[i])
-          root_queue.push(curr.right)
-        end
-
-        i += 1
-        root_queue.shift
-      end
-
-      root
-    end
-
     # @param {TreeNode} p
     # @param {TreeNode} q
     # @return {Boolean}
