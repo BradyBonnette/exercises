@@ -5,6 +5,7 @@ module LeetCode
     class ListParser
       def self.parse(data)
         return [] if data.nil?
+        return data if data == []
 
         head = ListNode.new(data[0])
         curr = head
@@ -15,6 +16,20 @@ module LeetCode
         end
 
         head
+      end
+
+      def self.walk(head)
+        return nil if head.nil?
+
+        arr = []
+        ptr = head
+
+        while ptr
+          arr << ptr.val
+          ptr = ptr.next
+        end
+
+        arr
       end
     end
   end
